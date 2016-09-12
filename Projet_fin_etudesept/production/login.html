@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentallela Alela! | </title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/login.css" rel="stylesheet">
+  </head>
+
+<body class="login">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="logo">
+                <img src="images/ministère interieure.jpg" style="" />
+            </div>
+        </div>
+        <div class="col-md-10 pull-left ">
+            <div class="content" style="background-color: #fcfcfc; padding: 0px; padding-left: 30px;">
+                <div class="row-fluid" style="margin-right: -60px;">
+                    <div class="span5">
+                        <form id="form1" runat="server" class="form-vertical login-form">
+
+                            <h3 class="form-title">
+                                Connexion au système
+                            </h3>
+                            <div>
+                                <asp:Login ID="Login1" runat="server" OnLoggingIn="Login1_LoggingIn" OnAuthenticate="Login1_Authenticate">
+
+                                    <layouttemplate>
+
+                                        <div class="control-group">
+                                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                                            <label class="control-label visible-ie8 visible-ie9">
+                                                Username
+                                            </label>
+                                            <div class="controls">
+                                                <div class="input-icon left">
+                                                    <i class="icon-user"></i>
+                                                    <input class="m-wrap placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" />
+                                                    <asp:TextBox ID="UserName" runat="server" class="m-wrap placeholder-no-fix" autocomplete="off"
+                                                                 placeholder="Nom d'Utilisateur" name="username"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="Vous devez rentrer votre email." ToolTip="Vous devez rentrer votre email." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label visible-ie8 visible-ie9">
+                                                Password
+                                            </label>
+                                            <div class="controls">
+                                                <div class="input-icon left">
+                                                    <i class="icon-lock"></i>
+                                                    <input class="m-wrap placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" />
+                                                    <asp:TextBox ID="Password" runat="server" Text="Sigrh@14" TextMode="Password" class="m-wrap placeholder-no-fix"
+                                                                 autocomplete="off" placeholder="Mot de Passe" name="password"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Vous devez rentrer un mot de passe." ToolTip="Vous devez rentrer un mot de passe." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <asp:Label ID="ErrorMessage" runat="server" Text="Label" Visible="false"></asp:Label>
+                                        <div class="form-actions">
+                                            <asp:LinkButton ID="logins" runat="server" class="btn blue" OnClick="logins_Click">Connexion <i class="m-icon-swapright m-icon-white"></i></asp:LinkButton>
+                                        </div>
+                                        <!--<div class="forget-password">
+                                            <h4>
+                                                Vous avez oublié votre mot de passe ?
+                                            </h4>
+                                            <p>
+                                                <a href="#" id="forget-password">Réinitialisez votre mot de passe.</a>
+                                            </p>
+                                        </div>-->
+
+
+                                    </layouttemplate>
+
+
+                                </asp:Login>
+                            </div>
+                        </form>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        <span class="footer-inner">
+            2014 &copy; Primature - Office de Management des Resssources
+            Humaines
+        </span>
+    </div>
+    </body>
+</html>

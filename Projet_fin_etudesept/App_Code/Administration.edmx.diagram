@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ec015256038541848164ff501c39cf1f" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_secteur_activite" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_statut_patente" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_statut_occupant" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_RefNiveauGeo" Width="1.5" PointX="3.375" PointY="8.875" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_RefUniteGeo" Width="1.5" PointX="5.625" PointY="8" />
+        <AssociationConnector Association="SGCT_dbModel.FK__tbl_RefUn__Id_Ni__4E53A1AA" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_annee_fiscale" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_forme_juridique" Width="1.5" PointX="10.375" PointY="5.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_Entreprise" Width="1.5" PointX="12.625" PointY="4.875" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_Entreprise_Tbl_forme_juridique" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_Patente" Width="1.5" PointX="14.875" PointY="3.875" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_Patente_tbl_annee_fiscale" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_Patente_tbl_Entreprise" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_Patente_Tbl_secteur_activite" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_Patente_Tbl_statut_patente" />
+        <EntityTypeShape EntityType="SGCT_dbModel.users_SGCT" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_nombre" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_type_annexe" Width="1.5" PointX="8.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_architecte" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_monument" Width="1.5" PointX="14.875" PointY="0.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_mairie" Width="1.5" PointX="12.625" PointY="0.75" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_monument_tbl_mairie" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_Patente_tbl_mairie" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_Statut_Evenement" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_Event" Width="1.5" PointX="17.125" PointY="4.75" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_monument_Tbl_Event" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_statut_event_Tbl_Event" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_raison_arbattage" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_statut_arbattage" Width="1.5" PointX="3.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SGCT_dbModel.tbl_formulaire_arbattage" Width="1.5" PointX="17.125" PointY="12.375" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_Personne" Width="1.5" PointX="14.875" PointY="10.5" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_formulaire_arbattage_Tbl_Personne" />
+        <AssociationConnector Association="SGCT_dbModel.FK_tbl_formulaire_arbattage_tbl_statut_arbattage" />
+        <AssociationConnector Association="SGCT_dbModel.FK_Tbl_Personne_tbl_mairie" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_Inspection" Width="1.5" PointX="19.875" PointY="5.375" />
+        <EntityTypeShape EntityType="SGCT_dbModel.Tbl_Produit" Width="1.5" PointX="17.625" PointY="0.875" />
+        <AssociationConnector Association="SGCT_dbModel.FK_Tbl_Inspection_Tbl_Produit" />
+        <AssociationConnector Association="SGCT_dbModel.FK_Tbl_Inspection_tbl_Entreprise" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

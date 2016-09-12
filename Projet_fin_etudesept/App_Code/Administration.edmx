@@ -1,0 +1,1972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SGCT_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Inspection">
+          <Key>
+            <PropertyRef Name="id_Inspection" />
+          </Key>
+          <Property Name="id_Inspection" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_entreprise" Type="bigint" />
+          <Property Name="details_entrepise" Type="ntext" />
+          <Property Name="details_produit" Type="ntext" />
+          <Property Name="Adresse" Type="nvarchar" MaxLength="500" />
+          <Property Name="autreAdresse" Type="nvarchar" MaxLength="500" />
+          <Property Name="nom_produit" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_produit" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Tbl_Produit">
+          <Key>
+            <PropertyRef Name="id_produit" />
+          </Key>
+          <Property Name="id_produit" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_produit" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="info_produit" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_annee_fiscale">
+          <Key>
+            <PropertyRef Name="id_anneefiscale" />
+          </Key>
+          <Property Name="id_anneefiscale" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Debut" Type="date" />
+          <Property Name="fin" Type="date" />
+          <Property Name="Createdby" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="id_Municipalite" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Tbl_architecte">
+          <Key>
+            <PropertyRef Name="ID_architecte" />
+          </Key>
+          <Property Name="ID_architecte" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="CIN" Type="nvarchar(max)" />
+          <Property Name="NIF" Type="nvarchar(max)" />
+          <Property Name="Date_naissance" Type="date" />
+          <Property Name="adresse" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="sexe" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="Id_uniteGeo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_Entreprise">
+          <Key>
+            <PropertyRef Name="Id_entreprise" />
+          </Key>
+          <Property Name="Id_entreprise" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_entreprise" Type="nvarchar" MaxLength="100" />
+          <Property Name="Noms_anterieurs" Type="nvarchar" MaxLength="100" />
+          <Property Name="Forme_juridique" Type="bigint" />
+          <Property Name="Tel1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel2" Type="nvarchar" MaxLength="50" />
+          <Property Name="descritption" Type="nvarchar(max)" />
+          <Property Name="Adresse" Type="nvarchar" MaxLength="500" />
+          <Property Name="autreAdresse" Type="nvarchar" MaxLength="500" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fondateur" Type="nvarchar" MaxLength="100" />
+          <Property Name="DebutdateFonctionnement" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_Event">
+          <Key>
+            <PropertyRef Name="ID_Evaluation" />
+          </Key>
+          <Property Name="ID_Evaluation" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_monument" Type="bigint" />
+          <Property Name="Commentaires" Type="text" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="ID_Institution" Type="bigint" />
+          <Property Name="DateEffectuee" Type="date" />
+          <Property Name="DateDebut" Type="datetime" />
+          <Property Name="DateFin" Type="datetime" />
+          <Property Name="Sujet" Type="ntext" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="RecurrenceParentID" Type="bigint" />
+          <Property Name="RecurrenceRule" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ID_Statut" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Tbl_forme_juridique">
+          <Key>
+            <PropertyRef Name="ID_Forme" />
+          </Key>
+          <Property Name="ID_Forme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_forme" Type="nvarchar(max)" />
+          <Property Name="descriptition" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_formulaire_arbattage">
+          <Key>
+            <PropertyRef Name="Id_formulaire" />
+          </Key>
+          <Property Name="Id_formulaire" Type="bigint" Nullable="false" />
+          <Property Name="id_statut" Type="smallint" />
+          <Property Name="id_personne" Type="bigint" />
+          <Property Name="date_demande" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_mairie">
+          <Key>
+            <PropertyRef Name="Id_mairie" />
+          </Key>
+          <Property Name="Id_mairie" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_mairie" Type="nvarchar" MaxLength="250" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_monument">
+          <Key>
+            <PropertyRef Name="Id_monument" />
+          </Key>
+          <Property Name="Id_monument" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_monument" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="id_mairie" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Tbl_nombre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="smallint" />
+          <Property Name="descriptition" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Patente">
+          <Key>
+            <PropertyRef Name="ID_Patente" />
+          </Key>
+          <Property Name="ID_Patente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Entreprise" Type="bigint" />
+          <Property Name="Id_AnneeFiscal" Type="bigint" />
+          <Property Name="Id_commune" Type="bigint" />
+          <Property Name="MasseSalariale" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ChiffresAffaires" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Commentaire" Type="nvarchar(max)" />
+          <Property Name="id_Facture" Type="bigint" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Montant" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="id_secteur" Type="bigint" />
+          <Property Name="id_statut" Type="bigint" />
+          <Property Name="id_mairie" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Tbl_Personne">
+          <Key>
+            <PropertyRef Name="ID_Personne" />
+          </Key>
+          <Property Name="ID_Personne" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="CIN" Type="nvarchar(max)" />
+          <Property Name="NIF" Type="nvarchar(max)" />
+          <Property Name="Date_naissance" Type="date" />
+          <Property Name="adresse" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="sexe" Type="varchar" MaxLength="15" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="Id_uniteGeo" Type="bigint" />
+          <Property Name="id_mairie" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_raison_arbattage">
+          <Key>
+            <PropertyRef Name="Id_raison" />
+          </Key>
+          <Property Name="Id_raison" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="raison" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_RefNiveauGeo">
+          <Key>
+            <PropertyRef Name="Id_NiveauGeo" />
+          </Key>
+          <Property Name="Id_NiveauGeo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionNiveau" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="A_NiveauSup" Type="bit" />
+          <Property Name="Id_NiveauSup" Type="bigint" />
+          <Property Name="Rang" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_RefUniteGeo">
+          <Key>
+            <PropertyRef Name="Id_UniteGeo" />
+          </Key>
+          <Property Name="Id_UniteGeo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionUnite" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_UniteGeoSup" Type="bigint" />
+          <Property Name="Superficie" Type="float" />
+          <Property Name="Id_NiveauGeo" Type="bigint" />
+          <Property Name="LatMinCoordGPS" Type="float" />
+          <Property Name="LonMinCoordGPS" Type="float" />
+          <Property Name="Population" Type="bigint" />
+          <Property Name="Densite" Type="float" />
+          <Property Name="LonXCoorGPS" Type="float" />
+          <Property Name="ValY" Type="float" />
+          <Property Name="ValX" Type="float" />
+          <Property Name="LatXCoorGPS" Type="float" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_secteur_activite">
+          <Key>
+            <PropertyRef Name="ID_secteur" />
+          </Key>
+          <Property Name="ID_secteur" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Secteur" Type="nvarchar(max)" />
+          <Property Name="descriptition" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+          <Property Name="Tarif" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_statut_arbattage">
+          <Key>
+            <PropertyRef Name="Id_statut_arbattage" />
+          </Key>
+          <Property Name="Id_statut_arbattage" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="staut" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_Statut_Evenement">
+          <Key>
+            <PropertyRef Name="ID_Statut" />
+          </Key>
+          <Property Name="ID_Statut" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Statut" Type="nvarchar" MaxLength="200" />
+          <Property Name="couleur" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_statut_occupant">
+          <Key>
+            <PropertyRef Name="ID_Statut" />
+          </Key>
+          <Property Name="ID_Statut" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Statut" Type="nvarchar(max)" />
+          <Property Name="descriptition" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_statut_patente">
+          <Key>
+            <PropertyRef Name="ID_Statut" />
+          </Key>
+          <Property Name="ID_Statut" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Statut" Type="nvarchar(max)" />
+          <Property Name="descriptition" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_type_annexe">
+          <Key>
+            <PropertyRef Name="ID_type" />
+          </Key>
+          <Property Name="ID_type" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type_Annexe" Type="nvarchar(max)" />
+          <Property Name="descriptition" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ModifBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateModif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="users_SGCT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="prenom" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="60" />
+          <Property Name="username" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="2500" Nullable="false" />
+          <Property Name="occupation" Type="int" Nullable="false" />
+          <Property Name="IsActif" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tbl_RefUn__Id_Ni__4E53A1AA">
+          <End Role="tbl_RefNiveauGeo" Type="Self.tbl_RefNiveauGeo" Multiplicity="0..1" />
+          <End Role="tbl_RefUniteGeo" Type="Self.tbl_RefUniteGeo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_RefNiveauGeo">
+              <PropertyRef Name="Id_NiveauGeo" />
+            </Principal>
+            <Dependent Role="tbl_RefUniteGeo">
+              <PropertyRef Name="Id_NiveauGeo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inspection_Tbl_Produit">
+          <End Role="Tbl_Produit" Type="Self.Tbl_Produit" Multiplicity="0..1" />
+          <End Role="Tbl_Inspection" Type="Self.Tbl_Inspection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Produit">
+              <PropertyRef Name="id_produit" />
+            </Principal>
+            <Dependent Role="Tbl_Inspection">
+              <PropertyRef Name="id_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inspection_tbl_Entreprise">
+          <End Role="tbl_Entreprise" Type="Self.tbl_Entreprise" Multiplicity="0..1" />
+          <End Role="Tbl_Inspection" Type="Self.Tbl_Inspection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entreprise">
+              <PropertyRef Name="Id_entreprise" />
+            </Principal>
+            <Dependent Role="Tbl_Inspection">
+              <PropertyRef Name="Id_entreprise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Entreprise_Tbl_forme_juridique">
+          <End Role="Tbl_forme_juridique" Type="Self.Tbl_forme_juridique" Multiplicity="0..1" />
+          <End Role="tbl_Entreprise" Type="Self.tbl_Entreprise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_forme_juridique">
+              <PropertyRef Name="ID_Forme" />
+            </Principal>
+            <Dependent Role="tbl_Entreprise">
+              <PropertyRef Name="Forme_juridique" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_formulaire_arbattage_Tbl_Personne">
+          <End Role="Tbl_Personne" Type="Self.Tbl_Personne" Multiplicity="0..1" />
+          <End Role="tbl_formulaire_arbattage" Type="Self.tbl_formulaire_arbattage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Personne">
+              <PropertyRef Name="ID_Personne" />
+            </Principal>
+            <Dependent Role="tbl_formulaire_arbattage">
+              <PropertyRef Name="id_personne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_formulaire_arbattage_tbl_statut_arbattage">
+          <End Role="tbl_statut_arbattage" Type="Self.tbl_statut_arbattage" Multiplicity="0..1" />
+          <End Role="tbl_formulaire_arbattage" Type="Self.tbl_formulaire_arbattage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_statut_arbattage">
+              <PropertyRef Name="Id_statut_arbattage" />
+            </Principal>
+            <Dependent Role="tbl_formulaire_arbattage">
+              <PropertyRef Name="id_statut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_monument_Tbl_Event">
+          <End Role="tbl_monument" Type="Self.tbl_monument" Multiplicity="0..1" />
+          <End Role="Tbl_Event" Type="Self.Tbl_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_monument">
+              <PropertyRef Name="Id_monument" />
+            </Principal>
+            <Dependent Role="Tbl_Event">
+              <PropertyRef Name="ID_monument" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_monument_tbl_mairie">
+          <End Role="tbl_mairie" Type="Self.tbl_mairie" Multiplicity="0..1" />
+          <End Role="tbl_monument" Type="Self.tbl_monument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_mairie">
+              <PropertyRef Name="Id_mairie" />
+            </Principal>
+            <Dependent Role="tbl_monument">
+              <PropertyRef Name="id_mairie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_tbl_annee_fiscale">
+          <End Role="tbl_annee_fiscale" Type="Self.tbl_annee_fiscale" Multiplicity="0..1" />
+          <End Role="tbl_Patente" Type="Self.tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_annee_fiscale">
+              <PropertyRef Name="id_anneefiscale" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="Id_AnneeFiscal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_tbl_Entreprise">
+          <End Role="tbl_Entreprise" Type="Self.tbl_Entreprise" Multiplicity="0..1" />
+          <End Role="tbl_Patente" Type="Self.tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entreprise">
+              <PropertyRef Name="Id_entreprise" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="ID_Entreprise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_tbl_mairie">
+          <End Role="tbl_mairie" Type="Self.tbl_mairie" Multiplicity="0..1" />
+          <End Role="tbl_Patente" Type="Self.tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_mairie">
+              <PropertyRef Name="Id_mairie" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="id_mairie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_Tbl_secteur_activite">
+          <End Role="Tbl_secteur_activite" Type="Self.Tbl_secteur_activite" Multiplicity="0..1" />
+          <End Role="tbl_Patente" Type="Self.tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_secteur_activite">
+              <PropertyRef Name="ID_secteur" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="id_secteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_Tbl_statut_patente">
+          <End Role="Tbl_statut_patente" Type="Self.Tbl_statut_patente" Multiplicity="0..1" />
+          <End Role="tbl_Patente" Type="Self.tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_statut_patente">
+              <PropertyRef Name="ID_Statut" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="id_statut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Personne_tbl_mairie">
+          <End Role="tbl_mairie" Type="Self.tbl_mairie" Multiplicity="0..1" />
+          <End Role="Tbl_Personne" Type="Self.Tbl_Personne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_mairie">
+              <PropertyRef Name="Id_mairie" />
+            </Principal>
+            <Dependent Role="Tbl_Personne">
+              <PropertyRef Name="id_mairie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_statut_event_Tbl_Event">
+          <End Role="Tbl_Statut_Evenement" Type="Self.Tbl_Statut_Evenement" Multiplicity="0..1" />
+          <End Role="Tbl_Event" Type="Self.Tbl_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Statut_Evenement">
+              <PropertyRef Name="ID_Statut" />
+            </Principal>
+            <Dependent Role="Tbl_Event">
+              <PropertyRef Name="ID_Statut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_all_inspection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_all_patente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mairie_monument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_patente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_patente_statut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Statut" Type="bigint" Mode="In" />
+        </Function>
+        <EntityContainer Name="SGCT_dbModelStoreContainer">
+          <EntitySet Name="Tbl_Inspection" EntityType="Self.Tbl_Inspection" Schema="dbo" Table="Tbl.Inspection" store:Type="Tables" />
+          <EntitySet Name="Tbl_Produit" EntityType="Self.Tbl_Produit" Schema="dbo" Table="Tbl.Produit" store:Type="Tables" />
+          <EntitySet Name="tbl_annee_fiscale" EntityType="Self.tbl_annee_fiscale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_architecte" EntityType="Self.Tbl_architecte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Entreprise" EntityType="Self.tbl_Entreprise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Event" EntityType="Self.Tbl_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_forme_juridique" EntityType="Self.Tbl_forme_juridique" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_formulaire_arbattage" EntityType="Self.tbl_formulaire_arbattage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_mairie" EntityType="Self.tbl_mairie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_monument" EntityType="Self.tbl_monument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_nombre" EntityType="Self.Tbl_nombre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Patente" EntityType="Self.tbl_Patente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Personne" EntityType="Self.Tbl_Personne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_raison_arbattage" EntityType="Self.tbl_raison_arbattage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RefNiveauGeo" EntityType="Self.tbl_RefNiveauGeo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RefUniteGeo" EntityType="Self.tbl_RefUniteGeo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_secteur_activite" EntityType="Self.Tbl_secteur_activite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_statut_arbattage" EntityType="Self.tbl_statut_arbattage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Statut_Evenement" EntityType="Self.Tbl_Statut_Evenement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_statut_occupant" EntityType="Self.Tbl_statut_occupant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_statut_patente" EntityType="Self.Tbl_statut_patente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_type_annexe" EntityType="Self.Tbl_type_annexe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users_SGCT" EntityType="Self.users_SGCT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_RefUn__Id_Ni__4E53A1AA" Association="Self.FK__tbl_RefUn__Id_Ni__4E53A1AA">
+            <End Role="tbl_RefNiveauGeo" EntitySet="tbl_RefNiveauGeo" />
+            <End Role="tbl_RefUniteGeo" EntitySet="tbl_RefUniteGeo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inspection_Tbl_Produit" Association="Self.FK_Tbl_Inspection_Tbl_Produit">
+            <End Role="Tbl_Produit" EntitySet="Tbl_Produit" />
+            <End Role="Tbl_Inspection" EntitySet="Tbl_Inspection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inspection_tbl_Entreprise" Association="Self.FK_Tbl_Inspection_tbl_Entreprise">
+            <End Role="tbl_Entreprise" EntitySet="tbl_Entreprise" />
+            <End Role="Tbl_Inspection" EntitySet="Tbl_Inspection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Entreprise_Tbl_forme_juridique" Association="Self.FK_tbl_Entreprise_Tbl_forme_juridique">
+            <End Role="Tbl_forme_juridique" EntitySet="Tbl_forme_juridique" />
+            <End Role="tbl_Entreprise" EntitySet="tbl_Entreprise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_formulaire_arbattage_Tbl_Personne" Association="Self.FK_tbl_formulaire_arbattage_Tbl_Personne">
+            <End Role="Tbl_Personne" EntitySet="Tbl_Personne" />
+            <End Role="tbl_formulaire_arbattage" EntitySet="tbl_formulaire_arbattage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_formulaire_arbattage_tbl_statut_arbattage" Association="Self.FK_tbl_formulaire_arbattage_tbl_statut_arbattage">
+            <End Role="tbl_statut_arbattage" EntitySet="tbl_statut_arbattage" />
+            <End Role="tbl_formulaire_arbattage" EntitySet="tbl_formulaire_arbattage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_monument_Tbl_Event" Association="Self.FK_tbl_monument_Tbl_Event">
+            <End Role="tbl_monument" EntitySet="tbl_monument" />
+            <End Role="Tbl_Event" EntitySet="Tbl_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_monument_tbl_mairie" Association="Self.FK_tbl_monument_tbl_mairie">
+            <End Role="tbl_mairie" EntitySet="tbl_mairie" />
+            <End Role="tbl_monument" EntitySet="tbl_monument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_tbl_annee_fiscale" Association="Self.FK_tbl_Patente_tbl_annee_fiscale">
+            <End Role="tbl_annee_fiscale" EntitySet="tbl_annee_fiscale" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_tbl_Entreprise" Association="Self.FK_tbl_Patente_tbl_Entreprise">
+            <End Role="tbl_Entreprise" EntitySet="tbl_Entreprise" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_tbl_mairie" Association="Self.FK_tbl_Patente_tbl_mairie">
+            <End Role="tbl_mairie" EntitySet="tbl_mairie" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_Tbl_secteur_activite" Association="Self.FK_tbl_Patente_Tbl_secteur_activite">
+            <End Role="Tbl_secteur_activite" EntitySet="Tbl_secteur_activite" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_Tbl_statut_patente" Association="Self.FK_tbl_Patente_Tbl_statut_patente">
+            <End Role="Tbl_statut_patente" EntitySet="Tbl_statut_patente" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Personne_tbl_mairie" Association="Self.FK_Tbl_Personne_tbl_mairie">
+            <End Role="tbl_mairie" EntitySet="tbl_mairie" />
+            <End Role="Tbl_Personne" EntitySet="Tbl_Personne" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_statut_event_Tbl_Event" Association="Self.FK_tbl_statut_event_Tbl_Event">
+            <End Role="Tbl_Statut_Evenement" EntitySet="Tbl_Statut_Evenement" />
+            <End Role="Tbl_Event" EntitySet="Tbl_Event" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGCT_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SGCT_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_secteur_activite" EntityType="SGCT_dbModel.Tbl_secteur_activite" />
+          <EntitySet Name="Tbl_statut_patente" EntityType="SGCT_dbModel.Tbl_statut_patente" />
+          <EntitySet Name="Tbl_statut_occupant" EntityType="SGCT_dbModel.Tbl_statut_occupant" />
+          <EntitySet Name="tbl_RefNiveauGeo" EntityType="SGCT_dbModel.tbl_RefNiveauGeo" />
+          <EntitySet Name="tbl_RefUniteGeo" EntityType="SGCT_dbModel.tbl_RefUniteGeo" />
+          <AssociationSet Name="FK__tbl_RefUn__Id_Ni__4E53A1AA" Association="SGCT_dbModel.FK__tbl_RefUn__Id_Ni__4E53A1AA">
+            <End Role="tbl_RefNiveauGeo" EntitySet="tbl_RefNiveauGeo" />
+            <End Role="tbl_RefUniteGeo" EntitySet="tbl_RefUniteGeo" />
+          </AssociationSet>
+          <EntitySet Name="tbl_annee_fiscale" EntityType="SGCT_dbModel.tbl_annee_fiscale" />
+          <EntitySet Name="Tbl_forme_juridique" EntityType="SGCT_dbModel.Tbl_forme_juridique" />
+          <EntitySet Name="tbl_Entreprise" EntityType="SGCT_dbModel.tbl_Entreprise" />
+          <AssociationSet Name="FK_tbl_Entreprise_Tbl_forme_juridique" Association="SGCT_dbModel.FK_tbl_Entreprise_Tbl_forme_juridique">
+            <End Role="Tbl_forme_juridique" EntitySet="Tbl_forme_juridique" />
+            <End Role="tbl_Entreprise" EntitySet="tbl_Entreprise" />
+          </AssociationSet>
+          <FunctionImport Name="sp_patente" ReturnType="Collection(SGCT_dbModel.sp_patente_Result)" />
+          <EntitySet Name="tbl_Patente" EntityType="SGCT_dbModel.tbl_Patente" />
+          <AssociationSet Name="FK_tbl_Patente_tbl_annee_fiscale" Association="SGCT_dbModel.FK_tbl_Patente_tbl_annee_fiscale">
+            <End Role="tbl_annee_fiscale" EntitySet="tbl_annee_fiscale" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_tbl_Entreprise" Association="SGCT_dbModel.FK_tbl_Patente_tbl_Entreprise">
+            <End Role="tbl_Entreprise" EntitySet="tbl_Entreprise" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_Tbl_secteur_activite" Association="SGCT_dbModel.FK_tbl_Patente_Tbl_secteur_activite">
+            <End Role="Tbl_secteur_activite" EntitySet="Tbl_secteur_activite" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_Tbl_statut_patente" Association="SGCT_dbModel.FK_tbl_Patente_Tbl_statut_patente">
+            <End Role="Tbl_statut_patente" EntitySet="Tbl_statut_patente" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <FunctionImport Name="sp_all_patente" ReturnType="Collection(SGCT_dbModel.sp_all_patente_Result)" />
+          <FunctionImport Name="sp_patente_statut" ReturnType="Collection(SGCT_dbModel.sp_patente_statut_Result)">
+          <Parameter Name="ID_Statut" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="users_SGCT" EntityType="SGCT_dbModel.users_SGCT" />
+          <EntitySet Name="Tbl_nombre" EntityType="SGCT_dbModel.Tbl_nombre" />
+          <EntitySet Name="Tbl_type_annexe" EntityType="SGCT_dbModel.Tbl_type_annexe" />
+          <EntitySet Name="Tbl_architecte" EntityType="SGCT_dbModel.Tbl_architecte" />
+          <EntitySet Name="tbl_monument" EntityType="SGCT_dbModel.tbl_monument" />
+          <EntitySet Name="tbl_mairie" EntityType="SGCT_dbModel.tbl_mairie" />
+          <AssociationSet Name="FK_tbl_monument_tbl_mairie" Association="SGCT_dbModel.FK_tbl_monument_tbl_mairie">
+            <End Role="tbl_mairie" EntitySet="tbl_mairie" />
+            <End Role="tbl_monument" EntitySet="tbl_monument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Patente_tbl_mairie" Association="SGCT_dbModel.FK_tbl_Patente_tbl_mairie">
+            <End Role="tbl_mairie" EntitySet="tbl_mairie" />
+            <End Role="tbl_Patente" EntitySet="tbl_Patente" />
+          </AssociationSet>
+          <FunctionImport Name="sp_mairie_monument" ReturnType="Collection(SGCT_dbModel.sp_mairie_monument_Result)" />
+          <EntitySet Name="Tbl_Statut_Evenement" EntityType="SGCT_dbModel.Tbl_Statut_Evenement" />
+          <EntitySet Name="Tbl_Event" EntityType="SGCT_dbModel.Tbl_Event" />
+          <AssociationSet Name="FK_tbl_monument_Tbl_Event" Association="SGCT_dbModel.FK_tbl_monument_Tbl_Event">
+            <End Role="tbl_monument" EntitySet="tbl_monument" />
+            <End Role="Tbl_Event" EntitySet="Tbl_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_statut_event_Tbl_Event" Association="SGCT_dbModel.FK_tbl_statut_event_Tbl_Event">
+            <End Role="Tbl_Statut_Evenement" EntitySet="Tbl_Statut_Evenement" />
+            <End Role="Tbl_Event" EntitySet="Tbl_Event" />
+          </AssociationSet>
+          <FunctionImport Name="sp_event" ReturnType="Collection(SGCT_dbModel.sp_event_Result)" />
+          <EntitySet Name="tbl_raison_arbattage" EntityType="SGCT_dbModel.tbl_raison_arbattage" />
+          <EntitySet Name="tbl_statut_arbattage" EntityType="SGCT_dbModel.tbl_statut_arbattage" />
+          <EntitySet Name="tbl_formulaire_arbattage" EntityType="SGCT_dbModel.tbl_formulaire_arbattage" />
+          <EntitySet Name="Tbl_Personne" EntityType="SGCT_dbModel.Tbl_Personne" />
+          <AssociationSet Name="FK_tbl_formulaire_arbattage_Tbl_Personne" Association="SGCT_dbModel.FK_tbl_formulaire_arbattage_Tbl_Personne">
+            <End Role="Tbl_Personne" EntitySet="Tbl_Personne" />
+            <End Role="tbl_formulaire_arbattage" EntitySet="tbl_formulaire_arbattage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_formulaire_arbattage_tbl_statut_arbattage" Association="SGCT_dbModel.FK_tbl_formulaire_arbattage_tbl_statut_arbattage">
+            <End Role="tbl_statut_arbattage" EntitySet="tbl_statut_arbattage" />
+            <End Role="tbl_formulaire_arbattage" EntitySet="tbl_formulaire_arbattage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Personne_tbl_mairie" Association="SGCT_dbModel.FK_Tbl_Personne_tbl_mairie">
+            <End Role="tbl_mairie" EntitySet="tbl_mairie" />
+            <End Role="Tbl_Personne" EntitySet="Tbl_Personne" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Inspection" EntityType="SGCT_dbModel.Tbl_Inspection" />
+          <EntitySet Name="Tbl_Produit" EntityType="SGCT_dbModel.Tbl_Produit" />
+          <AssociationSet Name="FK_Tbl_Inspection_Tbl_Produit" Association="SGCT_dbModel.FK_Tbl_Inspection_Tbl_Produit">
+            <End Role="Tbl_Produit" EntitySet="Tbl_Produit" />
+            <End Role="Tbl_Inspection" EntitySet="Tbl_Inspection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inspection_tbl_Entreprise" Association="SGCT_dbModel.FK_Tbl_Inspection_tbl_Entreprise">
+            <End Role="tbl_Entreprise" EntitySet="tbl_Entreprise" />
+            <End Role="Tbl_Inspection" EntitySet="Tbl_Inspection" />
+          </AssociationSet>
+          <FunctionImport Name="sp_all_inspection" ReturnType="Collection(SGCT_dbModel.sp_all_inspection_Result)" />
+          </EntityContainer>
+        <EntityType Name="Tbl_secteur_activite">
+          <Key>
+            <PropertyRef Name="ID_secteur" />
+          </Key>
+          <Property Name="ID_secteur" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Secteur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descriptition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="Tarif" Type="Int32" />
+          <NavigationProperty Name="tbl_Patente" Relationship="SGCT_dbModel.FK_tbl_Patente_Tbl_secteur_activite" FromRole="Tbl_secteur_activite" ToRole="tbl_Patente" />
+        </EntityType>
+        <EntityType Name="Tbl_statut_patente">
+          <Key>
+            <PropertyRef Name="ID_Statut" />
+          </Key>
+          <Property Name="ID_Statut" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Statut" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descriptition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Patente" Relationship="SGCT_dbModel.FK_tbl_Patente_Tbl_statut_patente" FromRole="Tbl_statut_patente" ToRole="tbl_Patente" />
+        </EntityType>
+        <EntityType Name="Tbl_statut_occupant">
+          <Key>
+            <PropertyRef Name="ID_Statut" />
+          </Key>
+          <Property Name="ID_Statut" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Statut" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descriptition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_RefNiveauGeo">
+          <Key>
+            <PropertyRef Name="Id_NiveauGeo" />
+          </Key>
+          <Property Name="Id_NiveauGeo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionNiveau" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="A_NiveauSup" Type="Boolean" />
+          <Property Name="Id_NiveauSup" Type="Int64" />
+          <Property Name="Rang" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_RefUniteGeo" Relationship="SGCT_dbModel.FK__tbl_RefUn__Id_Ni__4E53A1AA" FromRole="tbl_RefNiveauGeo" ToRole="tbl_RefUniteGeo" />
+        </EntityType>
+        <EntityType Name="tbl_RefUniteGeo">
+          <Key>
+            <PropertyRef Name="Id_UniteGeo" />
+          </Key>
+          <Property Name="Id_UniteGeo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionUnite" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_UniteGeoSup" Type="Int64" />
+          <Property Name="Superficie" Type="Double" />
+          <Property Name="Id_NiveauGeo" Type="Int64" />
+          <Property Name="LatMinCoordGPS" Type="Double" />
+          <Property Name="LonMinCoordGPS" Type="Double" />
+          <Property Name="Population" Type="Int64" />
+          <Property Name="Densite" Type="Double" />
+          <Property Name="LonXCoorGPS" Type="Double" />
+          <Property Name="ValY" Type="Double" />
+          <Property Name="ValX" Type="Double" />
+          <Property Name="LatXCoorGPS" Type="Double" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_RefNiveauGeo" Relationship="SGCT_dbModel.FK__tbl_RefUn__Id_Ni__4E53A1AA" FromRole="tbl_RefUniteGeo" ToRole="tbl_RefNiveauGeo" />
+        </EntityType>
+        <Association Name="FK__tbl_RefUn__Id_Ni__4E53A1AA">
+          <End Type="SGCT_dbModel.tbl_RefNiveauGeo" Role="tbl_RefNiveauGeo" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_RefUniteGeo" Role="tbl_RefUniteGeo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_RefNiveauGeo">
+              <PropertyRef Name="Id_NiveauGeo" />
+            </Principal>
+            <Dependent Role="tbl_RefUniteGeo">
+              <PropertyRef Name="Id_NiveauGeo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_annee_fiscale">
+          <Key>
+            <PropertyRef Name="id_anneefiscale" />
+          </Key>
+          <Property Name="id_anneefiscale" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Debut" Type="DateTime" Precision="0" />
+          <Property Name="fin" Type="DateTime" Precision="0" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="id_Municipalite" Type="Int64" />
+          <NavigationProperty Name="tbl_Patente" Relationship="SGCT_dbModel.FK_tbl_Patente_tbl_annee_fiscale" FromRole="tbl_annee_fiscale" ToRole="tbl_Patente" />
+        </EntityType>
+        <EntityType Name="Tbl_forme_juridique">
+          <Key>
+            <PropertyRef Name="ID_Forme" />
+          </Key>
+          <Property Name="ID_Forme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_forme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descriptition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Entreprise" Relationship="SGCT_dbModel.FK_tbl_Entreprise_Tbl_forme_juridique" FromRole="Tbl_forme_juridique" ToRole="tbl_Entreprise" />
+        </EntityType>
+        <EntityType Name="tbl_Entreprise">
+          <Key>
+            <PropertyRef Name="Id_entreprise" />
+          </Key>
+          <Property Name="Id_entreprise" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_entreprise" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Noms_anterieurs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Forme_juridique" Type="Int64" />
+          <Property Name="Tel1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descritption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="autreAdresse" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fondateur" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DebutdateFonctionnement" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Tbl_forme_juridique" Relationship="SGCT_dbModel.FK_tbl_Entreprise_Tbl_forme_juridique" FromRole="tbl_Entreprise" ToRole="Tbl_forme_juridique" />
+          <NavigationProperty Name="tbl_Patente" Relationship="SGCT_dbModel.FK_tbl_Patente_tbl_Entreprise" FromRole="tbl_Entreprise" ToRole="tbl_Patente" />
+          <NavigationProperty Name="Tbl_Inspection" Relationship="SGCT_dbModel.FK_Tbl_Inspection_tbl_Entreprise" FromRole="tbl_Entreprise" ToRole="Tbl_Inspection" />
+        </EntityType>
+        <Association Name="FK_tbl_Entreprise_Tbl_forme_juridique">
+          <End Type="SGCT_dbModel.Tbl_forme_juridique" Role="Tbl_forme_juridique" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_Entreprise" Role="tbl_Entreprise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_forme_juridique">
+              <PropertyRef Name="ID_Forme" />
+            </Principal>
+            <Dependent Role="tbl_Entreprise">
+              <PropertyRef Name="Forme_juridique" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_patente_Result">
+          <Property Type="Int64" Name="Id_entreprise" Nullable="false" />
+          <Property Type="String" Name="Nom_entreprise" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Noms_anterieurs" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="Forme_juridique" Nullable="true" />
+          <Property Type="String" Name="Tel1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tel2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descritption" Nullable="true" />
+          <Property Type="String" Name="Adresse" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="autreAdresse" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateModif" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifBy" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Fondateur" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="DebutdateFonctionnement" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="id_anneefiscale" Nullable="true" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Debut" Nullable="true" />
+          <Property Type="DateTime" Name="fin" Nullable="true" />
+          <Property Type="String" Name="Createdby1" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DateCreated1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifBy1" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DateModif1" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="id_Municipalite" Nullable="true" />
+          <Property Type="Int64" Name="ID_Forme" Nullable="true" />
+          <Property Type="String" Name="Nom_forme" Nullable="true" />
+          <Property Type="String" Name="descriptition" Nullable="true" />
+          <Property Type="String" Name="CreatedBy2" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="DateCreated2" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifBy2" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="DateModif2" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="ID_Patente" Nullable="false" />
+          <Property Type="Int64" Name="ID_Entreprise1" Nullable="true" />
+          <Property Type="Int64" Name="Id_AnneeFiscal" Nullable="true" />
+          <Property Type="Int64" Name="Id_commune" Nullable="true" />
+          <Property Type="Decimal" Name="MasseSalariale" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ChiffresAffaires" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Commentaire" Nullable="true" />
+          <Property Type="Int64" Name="id_Facture" Nullable="true" />
+          <Property Type="DateTime" Name="DateCreated3" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy3" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DateModif3" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifBy3" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Montant" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <EntityType Name="tbl_Patente">
+          <Key>
+            <PropertyRef Name="ID_Patente" />
+          </Key>
+          <Property Name="ID_Patente" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Entreprise" Type="Int64" />
+          <Property Name="Id_AnneeFiscal" Type="Int64" />
+          <Property Name="Id_commune" Type="Int64" />
+          <Property Name="MasseSalariale" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChiffresAffaires" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Commentaire" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_Facture" Type="Int64" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Montant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="id_secteur" Type="Int64" />
+          <Property Name="id_statut" Type="Int64" />
+          <NavigationProperty Name="tbl_annee_fiscale" Relationship="SGCT_dbModel.FK_tbl_Patente_tbl_annee_fiscale" FromRole="tbl_Patente" ToRole="tbl_annee_fiscale" />
+          <NavigationProperty Name="tbl_Entreprise" Relationship="SGCT_dbModel.FK_tbl_Patente_tbl_Entreprise" FromRole="tbl_Patente" ToRole="tbl_Entreprise" />
+          <NavigationProperty Name="Tbl_secteur_activite" Relationship="SGCT_dbModel.FK_tbl_Patente_Tbl_secteur_activite" FromRole="tbl_Patente" ToRole="Tbl_secteur_activite" />
+          <NavigationProperty Name="Tbl_statut_patente" Relationship="SGCT_dbModel.FK_tbl_Patente_Tbl_statut_patente" FromRole="tbl_Patente" ToRole="Tbl_statut_patente" />
+          <Property Name="id_mairie" Type="Int64" />
+          <NavigationProperty Name="tbl_mairie" Relationship="SGCT_dbModel.FK_tbl_Patente_tbl_mairie" FromRole="tbl_Patente" ToRole="tbl_mairie" />
+        </EntityType>
+        <Association Name="FK_tbl_Patente_tbl_annee_fiscale">
+          <End Type="SGCT_dbModel.tbl_annee_fiscale" Role="tbl_annee_fiscale" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_Patente" Role="tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_annee_fiscale">
+              <PropertyRef Name="id_anneefiscale" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="Id_AnneeFiscal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_tbl_Entreprise">
+          <End Type="SGCT_dbModel.tbl_Entreprise" Role="tbl_Entreprise" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_Patente" Role="tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entreprise">
+              <PropertyRef Name="Id_entreprise" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="ID_Entreprise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_Tbl_secteur_activite">
+          <End Type="SGCT_dbModel.Tbl_secteur_activite" Role="Tbl_secteur_activite" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_Patente" Role="tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_secteur_activite">
+              <PropertyRef Name="ID_secteur" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="id_secteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_Tbl_statut_patente">
+          <End Type="SGCT_dbModel.Tbl_statut_patente" Role="Tbl_statut_patente" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_Patente" Role="tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_statut_patente">
+              <PropertyRef Name="ID_Statut" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="id_statut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_all_patente_Result">
+          <Property Type="Int64" Name="id_anneefiscale" Nullable="true" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Debut" Nullable="true" />
+          <Property Type="DateTime" Name="fin" Nullable="true" />
+          <Property Type="Int64" Name="ID_Statut" Nullable="true" />
+          <Property Type="String" Name="Statut" Nullable="true" />
+          <Property Type="String" Name="descriptition" Nullable="true" />
+          <Property Type="Int64" Name="Id_entreprise" Nullable="false" />
+          <Property Type="String" Name="Nom_entreprise" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Noms_anterieurs" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="Forme_juridique" Nullable="true" />
+          <Property Type="String" Name="Tel2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tel1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descritption" Nullable="true" />
+          <Property Type="String" Name="Adresse" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="autreAdresse" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateModif" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Fondateur" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="DebutdateFonctionnement" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="ID_Forme" Nullable="true" />
+          <Property Type="String" Name="Nom_forme" Nullable="true" />
+          <Property Type="String" Name="Expr1" Nullable="true" />
+          <Property Type="Int64" Name="ID_Patente" Nullable="false" />
+          <Property Type="Int64" Name="Expr2" Nullable="true" />
+          <Property Type="Int64" Name="Id_AnneeFiscal" Nullable="true" />
+          <Property Type="Int64" Name="Id_commune" Nullable="true" />
+          <Property Type="Decimal" Name="MasseSalariale" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ChiffresAffaires" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Commentaire" Nullable="true" />
+          <Property Type="Int64" Name="id_Facture" Nullable="true" />
+          <Property Type="Int64" Name="Expr3" Nullable="true" />
+          <Property Type="Int64" Name="id_secteur" Nullable="true" />
+          <Property Type="Decimal" Name="Montant" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_patente_statut_Result">
+          <Property Type="Int64" Name="id_anneefiscale" Nullable="true" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Debut" Nullable="true" />
+          <Property Type="DateTime" Name="fin" Nullable="true" />
+          <Property Type="Int64" Name="ID_Statut" Nullable="true" />
+          <Property Type="String" Name="Statut" Nullable="true" />
+          <Property Type="String" Name="descriptition" Nullable="true" />
+          <Property Type="Int64" Name="Id_entreprise" Nullable="false" />
+          <Property Type="String" Name="Nom_entreprise" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Noms_anterieurs" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="Forme_juridique" Nullable="true" />
+          <Property Type="String" Name="Tel2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tel1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descritption" Nullable="true" />
+          <Property Type="String" Name="Adresse" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="autreAdresse" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateModif" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Fondateur" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="DebutdateFonctionnement" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="ID_Forme" Nullable="true" />
+          <Property Type="String" Name="Nom_forme" Nullable="true" />
+          <Property Type="String" Name="Expr1" Nullable="true" />
+          <Property Type="Int64" Name="ID_Patente" Nullable="false" />
+          <Property Type="Int64" Name="Expr2" Nullable="true" />
+          <Property Type="Int64" Name="Id_AnneeFiscal" Nullable="true" />
+          <Property Type="Int64" Name="Id_commune" Nullable="true" />
+          <Property Type="Decimal" Name="MasseSalariale" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ChiffresAffaires" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Commentaire" Nullable="true" />
+          <Property Type="Int64" Name="id_Facture" Nullable="true" />
+          <Property Type="Int64" Name="Expr3" Nullable="true" />
+          <Property Type="Int64" Name="id_secteur" Nullable="true" />
+          <Property Type="Decimal" Name="Montant" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <EntityType Name="users_SGCT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="adresse" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="occupation" Type="Int32" Nullable="false" />
+          <Property Name="IsActif" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_nombre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="Int16" />
+          <Property Name="descriptition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_type_annexe">
+          <Key>
+            <PropertyRef Name="ID_type" />
+          </Key>
+          <Property Name="ID_type" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type_Annexe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descriptition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_architecte">
+          <Key>
+            <PropertyRef Name="ID_architecte" />
+          </Key>
+          <Property Name="ID_architecte" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NIF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_naissance" Type="DateTime" Precision="0" />
+          <Property Name="adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sexe" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="Id_uniteGeo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tbl_monument">
+          <Key>
+            <PropertyRef Name="Id_monument" />
+          </Key>
+          <Property Name="Id_monument" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_monument" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="id_mairie" Type="Int64" />
+          <NavigationProperty Name="tbl_mairie" Relationship="SGCT_dbModel.FK_tbl_monument_tbl_mairie" FromRole="tbl_monument" ToRole="tbl_mairie" />
+          <NavigationProperty Name="Tbl_Event" Relationship="SGCT_dbModel.FK_tbl_monument_Tbl_Event" FromRole="tbl_monument" ToRole="Tbl_Event" />
+        </EntityType>
+        <EntityType Name="tbl_mairie">
+          <Key>
+            <PropertyRef Name="Id_mairie" />
+          </Key>
+          <Property Name="Id_mairie" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_mairie" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_monument" Relationship="SGCT_dbModel.FK_tbl_monument_tbl_mairie" FromRole="tbl_mairie" ToRole="tbl_monument" />
+          <NavigationProperty Name="tbl_Patente" Relationship="SGCT_dbModel.FK_tbl_Patente_tbl_mairie" FromRole="tbl_mairie" ToRole="tbl_Patente" />
+          <NavigationProperty Name="Tbl_Personne" Relationship="SGCT_dbModel.FK_Tbl_Personne_tbl_mairie" FromRole="tbl_mairie" ToRole="Tbl_Personne" />
+        </EntityType>
+        <Association Name="FK_tbl_monument_tbl_mairie">
+          <End Type="SGCT_dbModel.tbl_mairie" Role="tbl_mairie" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_monument" Role="tbl_monument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_mairie">
+              <PropertyRef Name="Id_mairie" />
+            </Principal>
+            <Dependent Role="tbl_monument">
+              <PropertyRef Name="id_mairie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Patente_tbl_mairie">
+          <End Type="SGCT_dbModel.tbl_mairie" Role="tbl_mairie" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_Patente" Role="tbl_Patente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_mairie">
+              <PropertyRef Name="Id_mairie" />
+            </Principal>
+            <Dependent Role="tbl_Patente">
+              <PropertyRef Name="id_mairie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_mairie_monument_Result">
+          <Property Type="String" Name="nom_mairie" Nullable="true" MaxLength="250" />
+          <Property Type="Int64" Name="Id_mairie" Nullable="true" />
+          <Property Type="String" Name="description" Nullable="true" />
+          <Property Type="Int64" Name="Id_monument" Nullable="false" />
+          <Property Type="String" Name="nom_monument" Nullable="true" />
+          <Property Type="String" Name="Expr1" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Tbl_Statut_Evenement">
+          <Key>
+            <PropertyRef Name="ID_Statut" />
+          </Key>
+          <Property Name="ID_Statut" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Statut" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="couleur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Tbl_Event" Relationship="SGCT_dbModel.FK_tbl_statut_event_Tbl_Event" FromRole="Tbl_Statut_Evenement" ToRole="Tbl_Event" />
+        </EntityType>
+        <EntityType Name="Tbl_Event">
+          <Key>
+            <PropertyRef Name="ID_Evaluation" />
+          </Key>
+          <Property Name="ID_Evaluation" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_monument" Type="Int64" />
+          <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="ID_Institution" Type="Int64" />
+          <Property Name="DateEffectuee" Type="DateTime" Precision="0" />
+          <Property Name="DateDebut" Type="DateTime" Precision="3" />
+          <Property Name="DateFin" Type="DateTime" Precision="3" />
+          <Property Name="Sujet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecurrenceParentID" Type="Int64" />
+          <Property Name="RecurrenceRule" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Statut" Type="Int16" />
+          <NavigationProperty Name="tbl_monument" Relationship="SGCT_dbModel.FK_tbl_monument_Tbl_Event" FromRole="Tbl_Event" ToRole="tbl_monument" />
+          <NavigationProperty Name="Tbl_Statut_Evenement" Relationship="SGCT_dbModel.FK_tbl_statut_event_Tbl_Event" FromRole="Tbl_Event" ToRole="Tbl_Statut_Evenement" />
+        </EntityType>
+        <Association Name="FK_tbl_monument_Tbl_Event">
+          <End Type="SGCT_dbModel.tbl_monument" Role="tbl_monument" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.Tbl_Event" Role="Tbl_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_monument">
+              <PropertyRef Name="Id_monument" />
+            </Principal>
+            <Dependent Role="Tbl_Event">
+              <PropertyRef Name="ID_monument" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_statut_event_Tbl_Event">
+          <End Type="SGCT_dbModel.Tbl_Statut_Evenement" Role="Tbl_Statut_Evenement" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.Tbl_Event" Role="Tbl_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Statut_Evenement">
+              <PropertyRef Name="ID_Statut" />
+            </Principal>
+            <Dependent Role="Tbl_Event">
+              <PropertyRef Name="ID_Statut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_event_Result">
+          <Property Type="String" Name="nom_monument" Nullable="true" />
+          <Property Type="String" Name="Statut" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="nom_mairie" Nullable="true" MaxLength="250" />
+          <Property Type="Int64" Name="ID_Evaluation" Nullable="false" />
+          <Property Type="Int64" Name="ID_monument" Nullable="true" />
+          <Property Type="String" Name="Commentaires" Nullable="true" MaxLength="Max" />
+          <Property Type="Int64" Name="ID_Institution" Nullable="true" />
+          <Property Type="DateTime" Name="DateEffectuee" Nullable="true" />
+          <Property Type="DateTime" Name="DateDebut" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DateFin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Sujet" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Description" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_raison_arbattage">
+          <Key>
+            <PropertyRef Name="Id_raison" />
+          </Key>
+          <Property Name="Id_raison" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="raison" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_statut_arbattage">
+          <Key>
+            <PropertyRef Name="Id_statut_arbattage" />
+          </Key>
+          <Property Name="Id_statut_arbattage" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="staut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_formulaire_arbattage" Relationship="SGCT_dbModel.FK_tbl_formulaire_arbattage_tbl_statut_arbattage" FromRole="tbl_statut_arbattage" ToRole="tbl_formulaire_arbattage" />
+        </EntityType>
+        <EntityType Name="tbl_formulaire_arbattage">
+          <Key>
+            <PropertyRef Name="Id_formulaire" />
+          </Key>
+          <Property Name="Id_formulaire" Type="Int64" Nullable="false" />
+          <Property Name="id_statut" Type="Int16" />
+          <Property Name="id_personne" Type="Int64" />
+          <Property Name="date_demande" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Tbl_Personne" Relationship="SGCT_dbModel.FK_tbl_formulaire_arbattage_Tbl_Personne" FromRole="tbl_formulaire_arbattage" ToRole="Tbl_Personne" />
+          <NavigationProperty Name="tbl_statut_arbattage" Relationship="SGCT_dbModel.FK_tbl_formulaire_arbattage_tbl_statut_arbattage" FromRole="tbl_formulaire_arbattage" ToRole="tbl_statut_arbattage" />
+        </EntityType>
+        <EntityType Name="Tbl_Personne">
+          <Key>
+            <PropertyRef Name="ID_Personne" />
+          </Key>
+          <Property Name="ID_Personne" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NIF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_naissance" Type="DateTime" Precision="0" />
+          <Property Name="adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sexe" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="Id_uniteGeo" Type="Int64" />
+          <Property Name="id_mairie" Type="Int64" />
+          <NavigationProperty Name="tbl_formulaire_arbattage" Relationship="SGCT_dbModel.FK_tbl_formulaire_arbattage_Tbl_Personne" FromRole="Tbl_Personne" ToRole="tbl_formulaire_arbattage" />
+          <NavigationProperty Name="tbl_mairie" Relationship="SGCT_dbModel.FK_Tbl_Personne_tbl_mairie" FromRole="Tbl_Personne" ToRole="tbl_mairie" />
+        </EntityType>
+        <Association Name="FK_tbl_formulaire_arbattage_Tbl_Personne">
+          <End Type="SGCT_dbModel.Tbl_Personne" Role="Tbl_Personne" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_formulaire_arbattage" Role="tbl_formulaire_arbattage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Personne">
+              <PropertyRef Name="ID_Personne" />
+            </Principal>
+            <Dependent Role="tbl_formulaire_arbattage">
+              <PropertyRef Name="id_personne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_formulaire_arbattage_tbl_statut_arbattage">
+          <End Type="SGCT_dbModel.tbl_statut_arbattage" Role="tbl_statut_arbattage" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.tbl_formulaire_arbattage" Role="tbl_formulaire_arbattage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_statut_arbattage">
+              <PropertyRef Name="Id_statut_arbattage" />
+            </Principal>
+            <Dependent Role="tbl_formulaire_arbattage">
+              <PropertyRef Name="id_statut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Personne_tbl_mairie">
+          <End Type="SGCT_dbModel.tbl_mairie" Role="tbl_mairie" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.Tbl_Personne" Role="Tbl_Personne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_mairie">
+              <PropertyRef Name="Id_mairie" />
+            </Principal>
+            <Dependent Role="Tbl_Personne">
+              <PropertyRef Name="id_mairie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_Inspection">
+          <Key>
+            <PropertyRef Name="id_Inspection" />
+          </Key>
+          <Property Name="id_Inspection" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_entreprise" Type="Int64" />
+          <Property Name="details_entrepise" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="details_produit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="autreAdresse" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="nom_produit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_produit" Type="Int64" />
+          <NavigationProperty Name="Tbl_Produit" Relationship="SGCT_dbModel.FK_Tbl_Inspection_Tbl_Produit" FromRole="Tbl_Inspection" ToRole="Tbl_Produit" />
+          <NavigationProperty Name="tbl_Entreprise" Relationship="SGCT_dbModel.FK_Tbl_Inspection_tbl_Entreprise" FromRole="Tbl_Inspection" ToRole="tbl_Entreprise" />
+        </EntityType>
+        <EntityType Name="Tbl_Produit">
+          <Key>
+            <PropertyRef Name="id_produit" />
+          </Key>
+          <Property Name="id_produit" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateModif" Type="DateTime" Precision="3" />
+          <Property Name="ModifBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="info_produit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Inspection" Relationship="SGCT_dbModel.FK_Tbl_Inspection_Tbl_Produit" FromRole="Tbl_Produit" ToRole="Tbl_Inspection" />
+        </EntityType>
+        <Association Name="FK_Tbl_Inspection_Tbl_Produit">
+          <End Type="SGCT_dbModel.Tbl_Produit" Role="Tbl_Produit" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.Tbl_Inspection" Role="Tbl_Inspection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Produit">
+              <PropertyRef Name="id_produit" />
+            </Principal>
+            <Dependent Role="Tbl_Inspection">
+              <PropertyRef Name="id_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inspection_tbl_Entreprise">
+          <End Type="SGCT_dbModel.tbl_Entreprise" Role="tbl_Entreprise" Multiplicity="0..1" />
+          <End Type="SGCT_dbModel.Tbl_Inspection" Role="Tbl_Inspection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entreprise">
+              <PropertyRef Name="Id_entreprise" />
+            </Principal>
+            <Dependent Role="Tbl_Inspection">
+              <PropertyRef Name="Id_entreprise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_all_inspection_Result">
+          <Property Type="String" Name="Nom_entreprise" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="Id_entreprise" Nullable="true" />
+          <Property Type="String" Name="INSPECTIO_BY" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="id_produit" Nullable="true" />
+          <Property Type="DateTime" Name="DATEINSPECTION_CREATED" Nullable="true" Precision="23" />
+          <Property Type="String" Name="nom_produit" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SGCT_dbModelStoreContainer" CdmEntityContainer="SGCT_dbEntities">
+          <EntitySetMapping Name="Tbl_secteur_activite">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_secteur_activite">
+              <MappingFragment StoreEntitySet="Tbl_secteur_activite">
+                <ScalarProperty Name="Tarif" ColumnName="Tarif" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Nom_Secteur" ColumnName="Nom_Secteur" />
+                <ScalarProperty Name="ID_secteur" ColumnName="ID_secteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_statut_patente">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_statut_patente">
+              <MappingFragment StoreEntitySet="Tbl_statut_patente">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="ID_Statut" ColumnName="ID_Statut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_statut_occupant">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_statut_occupant">
+              <MappingFragment StoreEntitySet="Tbl_statut_occupant">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="ID_Statut" ColumnName="ID_Statut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RefNiveauGeo">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_RefNiveauGeo">
+              <MappingFragment StoreEntitySet="tbl_RefNiveauGeo">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Rang" ColumnName="Rang" />
+                <ScalarProperty Name="Id_NiveauSup" ColumnName="Id_NiveauSup" />
+                <ScalarProperty Name="A_NiveauSup" ColumnName="A_NiveauSup" />
+                <ScalarProperty Name="DescriptionNiveau" ColumnName="DescriptionNiveau" />
+                <ScalarProperty Name="Id_NiveauGeo" ColumnName="Id_NiveauGeo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RefUniteGeo">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_RefUniteGeo">
+              <MappingFragment StoreEntitySet="tbl_RefUniteGeo">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LatXCoorGPS" ColumnName="LatXCoorGPS" />
+                <ScalarProperty Name="ValX" ColumnName="ValX" />
+                <ScalarProperty Name="ValY" ColumnName="ValY" />
+                <ScalarProperty Name="LonXCoorGPS" ColumnName="LonXCoorGPS" />
+                <ScalarProperty Name="Densite" ColumnName="Densite" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="LonMinCoordGPS" ColumnName="LonMinCoordGPS" />
+                <ScalarProperty Name="LatMinCoordGPS" ColumnName="LatMinCoordGPS" />
+                <ScalarProperty Name="Id_NiveauGeo" ColumnName="Id_NiveauGeo" />
+                <ScalarProperty Name="Superficie" ColumnName="Superficie" />
+                <ScalarProperty Name="Id_UniteGeoSup" ColumnName="Id_UniteGeoSup" />
+                <ScalarProperty Name="DescriptionUnite" ColumnName="DescriptionUnite" />
+                <ScalarProperty Name="Id_UniteGeo" ColumnName="Id_UniteGeo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_annee_fiscale">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_annee_fiscale">
+              <MappingFragment StoreEntitySet="tbl_annee_fiscale">
+                <ScalarProperty Name="id_Municipalite" ColumnName="id_Municipalite" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="Debut" ColumnName="Debut" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id_anneefiscale" ColumnName="id_anneefiscale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_forme_juridique">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_forme_juridique">
+              <MappingFragment StoreEntitySet="Tbl_forme_juridique">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Nom_forme" ColumnName="Nom_forme" />
+                <ScalarProperty Name="ID_Forme" ColumnName="ID_Forme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Entreprise">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_Entreprise">
+              <MappingFragment StoreEntitySet="tbl_Entreprise">
+                <ScalarProperty Name="DebutdateFonctionnement" ColumnName="DebutdateFonctionnement" />
+                <ScalarProperty Name="Fondateur" ColumnName="Fondateur" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="autreAdresse" ColumnName="autreAdresse" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="descritption" ColumnName="descritption" />
+                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="Forme_juridique" ColumnName="Forme_juridique" />
+                <ScalarProperty Name="Noms_anterieurs" ColumnName="Noms_anterieurs" />
+                <ScalarProperty Name="Nom_entreprise" ColumnName="Nom_entreprise" />
+                <ScalarProperty Name="Id_entreprise" ColumnName="Id_entreprise" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_patente" FunctionName="SGCT_dbModel.Store.sp_patente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGCT_dbModel.sp_patente_Result">
+                <ScalarProperty Name="Id_entreprise" ColumnName="Id_entreprise" />
+                <ScalarProperty Name="Nom_entreprise" ColumnName="Nom_entreprise" />
+                <ScalarProperty Name="Noms_anterieurs" ColumnName="Noms_anterieurs" />
+                <ScalarProperty Name="Forme_juridique" ColumnName="Forme_juridique" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="descritption" ColumnName="descritption" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="autreAdresse" ColumnName="autreAdresse" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="Fondateur" ColumnName="Fondateur" />
+                <ScalarProperty Name="DebutdateFonctionnement" ColumnName="DebutdateFonctionnement" />
+                <ScalarProperty Name="id_anneefiscale" ColumnName="id_anneefiscale" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Debut" ColumnName="Debut" />
+                <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="Createdby1" ColumnName="Createdby1" />
+                <ScalarProperty Name="DateCreated1" ColumnName="DateCreated1" />
+                <ScalarProperty Name="ModifBy1" ColumnName="ModifBy1" />
+                <ScalarProperty Name="DateModif1" ColumnName="DateModif1" />
+                <ScalarProperty Name="id_Municipalite" ColumnName="id_Municipalite" />
+                <ScalarProperty Name="ID_Forme" ColumnName="ID_Forme" />
+                <ScalarProperty Name="Nom_forme" ColumnName="Nom_forme" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="CreatedBy2" ColumnName="CreatedBy2" />
+                <ScalarProperty Name="DateCreated2" ColumnName="DateCreated2" />
+                <ScalarProperty Name="ModifBy2" ColumnName="ModifBy2" />
+                <ScalarProperty Name="DateModif2" ColumnName="DateModif2" />
+                <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
+                <ScalarProperty Name="ID_Entreprise1" ColumnName="ID_Entreprise1" />
+                <ScalarProperty Name="Id_AnneeFiscal" ColumnName="Id_AnneeFiscal" />
+                <ScalarProperty Name="Id_commune" ColumnName="Id_commune" />
+                <ScalarProperty Name="MasseSalariale" ColumnName="MasseSalariale" />
+                <ScalarProperty Name="ChiffresAffaires" ColumnName="ChiffresAffaires" />
+                <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+                <ScalarProperty Name="id_Facture" ColumnName="id_Facture" />
+                <ScalarProperty Name="DateCreated3" ColumnName="DateCreated3" />
+                <ScalarProperty Name="CreatedBy3" ColumnName="CreatedBy3" />
+                <ScalarProperty Name="DateModif3" ColumnName="DateModif3" />
+                <ScalarProperty Name="ModifBy3" ColumnName="ModifBy3" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_Patente">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_Patente">
+              <MappingFragment StoreEntitySet="tbl_Patente">
+                <ScalarProperty Name="id_mairie" ColumnName="id_mairie" />
+                <ScalarProperty Name="id_statut" ColumnName="id_statut" />
+                <ScalarProperty Name="id_secteur" ColumnName="id_secteur" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="id_Facture" ColumnName="id_Facture" />
+                <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+                <ScalarProperty Name="ChiffresAffaires" ColumnName="ChiffresAffaires" />
+                <ScalarProperty Name="MasseSalariale" ColumnName="MasseSalariale" />
+                <ScalarProperty Name="Id_commune" ColumnName="Id_commune" />
+                <ScalarProperty Name="Id_AnneeFiscal" ColumnName="Id_AnneeFiscal" />
+                <ScalarProperty Name="ID_Entreprise" ColumnName="ID_Entreprise" />
+                <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_all_patente" FunctionName="SGCT_dbModel.Store.sp_all_patente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGCT_dbModel.sp_all_patente_Result">
+                <ScalarProperty Name="id_anneefiscale" ColumnName="id_anneefiscale" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Debut" ColumnName="Debut" />
+                <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="ID_Statut" ColumnName="ID_Statut" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Id_entreprise" ColumnName="Id_entreprise" />
+                <ScalarProperty Name="Nom_entreprise" ColumnName="Nom_entreprise" />
+                <ScalarProperty Name="Noms_anterieurs" ColumnName="Noms_anterieurs" />
+                <ScalarProperty Name="Forme_juridique" ColumnName="Forme_juridique" />
+                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="descritption" ColumnName="descritption" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="autreAdresse" ColumnName="autreAdresse" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="Fondateur" ColumnName="Fondateur" />
+                <ScalarProperty Name="DebutdateFonctionnement" ColumnName="DebutdateFonctionnement" />
+                <ScalarProperty Name="ID_Forme" ColumnName="ID_Forme" />
+                <ScalarProperty Name="Nom_forme" ColumnName="Nom_forme" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Id_AnneeFiscal" ColumnName="Id_AnneeFiscal" />
+                <ScalarProperty Name="Id_commune" ColumnName="Id_commune" />
+                <ScalarProperty Name="MasseSalariale" ColumnName="MasseSalariale" />
+                <ScalarProperty Name="ChiffresAffaires" ColumnName="ChiffresAffaires" />
+                <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+                <ScalarProperty Name="id_Facture" ColumnName="id_Facture" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="id_secteur" ColumnName="id_secteur" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_patente_statut" FunctionName="SGCT_dbModel.Store.sp_patente_statut">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGCT_dbModel.sp_patente_statut_Result">
+                <ScalarProperty Name="id_anneefiscale" ColumnName="id_anneefiscale" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Debut" ColumnName="Debut" />
+                <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="ID_Statut" ColumnName="ID_Statut" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Id_entreprise" ColumnName="Id_entreprise" />
+                <ScalarProperty Name="Nom_entreprise" ColumnName="Nom_entreprise" />
+                <ScalarProperty Name="Noms_anterieurs" ColumnName="Noms_anterieurs" />
+                <ScalarProperty Name="Forme_juridique" ColumnName="Forme_juridique" />
+                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="descritption" ColumnName="descritption" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="autreAdresse" ColumnName="autreAdresse" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="Fondateur" ColumnName="Fondateur" />
+                <ScalarProperty Name="DebutdateFonctionnement" ColumnName="DebutdateFonctionnement" />
+                <ScalarProperty Name="ID_Forme" ColumnName="ID_Forme" />
+                <ScalarProperty Name="Nom_forme" ColumnName="Nom_forme" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="ID_Patente" ColumnName="ID_Patente" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Id_AnneeFiscal" ColumnName="Id_AnneeFiscal" />
+                <ScalarProperty Name="Id_commune" ColumnName="Id_commune" />
+                <ScalarProperty Name="MasseSalariale" ColumnName="MasseSalariale" />
+                <ScalarProperty Name="ChiffresAffaires" ColumnName="ChiffresAffaires" />
+                <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+                <ScalarProperty Name="id_Facture" ColumnName="id_Facture" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="id_secteur" ColumnName="id_secteur" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="users_SGCT">
+            <EntityTypeMapping TypeName="SGCT_dbModel.users_SGCT">
+              <MappingFragment StoreEntitySet="users_SGCT">
+                <ScalarProperty Name="IsActif" ColumnName="IsActif" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_nombre">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_nombre">
+              <MappingFragment StoreEntitySet="Tbl_nombre">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_type_annexe">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_type_annexe">
+              <MappingFragment StoreEntitySet="Tbl_type_annexe">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="descriptition" ColumnName="descriptition" />
+                <ScalarProperty Name="Type_Annexe" ColumnName="Type_Annexe" />
+                <ScalarProperty Name="ID_type" ColumnName="ID_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_architecte">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_architecte">
+              <MappingFragment StoreEntitySet="Tbl_architecte">
+                <ScalarProperty Name="Id_uniteGeo" ColumnName="Id_uniteGeo" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="sexe" ColumnName="sexe" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="Date_naissance" ColumnName="Date_naissance" />
+                <ScalarProperty Name="NIF" ColumnName="NIF" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="ID_architecte" ColumnName="ID_architecte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_monument">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_monument">
+              <MappingFragment StoreEntitySet="tbl_monument">
+                <ScalarProperty Name="id_mairie" ColumnName="id_mairie" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="nom_monument" ColumnName="nom_monument" />
+                <ScalarProperty Name="Id_monument" ColumnName="Id_monument" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_mairie">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_mairie">
+              <MappingFragment StoreEntitySet="tbl_mairie">
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="nom_mairie" ColumnName="nom_mairie" />
+                <ScalarProperty Name="Id_mairie" ColumnName="Id_mairie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_mairie_monument" FunctionName="SGCT_dbModel.Store.sp_mairie_monument">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGCT_dbModel.sp_mairie_monument_Result">
+                <ScalarProperty Name="nom_mairie" ColumnName="nom_mairie" />
+                <ScalarProperty Name="Id_mairie" ColumnName="Id_mairie" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Id_monument" ColumnName="Id_monument" />
+                <ScalarProperty Name="nom_monument" ColumnName="nom_monument" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Tbl_Statut_Evenement">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_Statut_Evenement">
+              <MappingFragment StoreEntitySet="Tbl_Statut_Evenement">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="couleur" ColumnName="couleur" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="ID_Statut" ColumnName="ID_Statut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Event">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_Event">
+              <MappingFragment StoreEntitySet="Tbl_Event">
+                <ScalarProperty Name="ID_Statut" ColumnName="ID_Statut" />
+                <ScalarProperty Name="RecurrenceRule" ColumnName="RecurrenceRule" />
+                <ScalarProperty Name="RecurrenceParentID" ColumnName="RecurrenceParentID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Sujet" ColumnName="Sujet" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="DateEffectuee" ColumnName="DateEffectuee" />
+                <ScalarProperty Name="ID_Institution" ColumnName="ID_Institution" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+                <ScalarProperty Name="ID_monument" ColumnName="ID_monument" />
+                <ScalarProperty Name="ID_Evaluation" ColumnName="ID_Evaluation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_event" FunctionName="SGCT_dbModel.Store.sp_event">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGCT_dbModel.sp_event_Result">
+                <ScalarProperty Name="nom_monument" ColumnName="nom_monument" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="nom_mairie" ColumnName="nom_mairie" />
+                <ScalarProperty Name="ID_Evaluation" ColumnName="ID_Evaluation" />
+                <ScalarProperty Name="ID_monument" ColumnName="ID_monument" />
+                <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+                <ScalarProperty Name="ID_Institution" ColumnName="ID_Institution" />
+                <ScalarProperty Name="DateEffectuee" ColumnName="DateEffectuee" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="Sujet" ColumnName="Sujet" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_raison_arbattage">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_raison_arbattage">
+              <MappingFragment StoreEntitySet="tbl_raison_arbattage">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="raison" ColumnName="raison" />
+                <ScalarProperty Name="Id_raison" ColumnName="Id_raison" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_statut_arbattage">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_statut_arbattage">
+              <MappingFragment StoreEntitySet="tbl_statut_arbattage">
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="staut" ColumnName="staut" />
+                <ScalarProperty Name="Id_statut_arbattage" ColumnName="Id_statut_arbattage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_formulaire_arbattage">
+            <EntityTypeMapping TypeName="SGCT_dbModel.tbl_formulaire_arbattage">
+              <MappingFragment StoreEntitySet="tbl_formulaire_arbattage">
+                <ScalarProperty Name="date_demande" ColumnName="date_demande" />
+                <ScalarProperty Name="id_personne" ColumnName="id_personne" />
+                <ScalarProperty Name="id_statut" ColumnName="id_statut" />
+                <ScalarProperty Name="Id_formulaire" ColumnName="Id_formulaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Personne">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_Personne">
+              <MappingFragment StoreEntitySet="Tbl_Personne">
+                <ScalarProperty Name="id_mairie" ColumnName="id_mairie" />
+                <ScalarProperty Name="Id_uniteGeo" ColumnName="Id_uniteGeo" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="sexe" ColumnName="sexe" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="Date_naissance" ColumnName="Date_naissance" />
+                <ScalarProperty Name="NIF" ColumnName="NIF" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="ID_Personne" ColumnName="ID_Personne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Inspection">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_Inspection">
+              <MappingFragment StoreEntitySet="Tbl_Inspection">
+                <ScalarProperty Name="id_produit" ColumnName="id_produit" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="nom_produit" ColumnName="nom_produit" />
+                <ScalarProperty Name="autreAdresse" ColumnName="autreAdresse" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="details_produit" ColumnName="details_produit" />
+                <ScalarProperty Name="details_entrepise" ColumnName="details_entrepise" />
+                <ScalarProperty Name="Id_entreprise" ColumnName="Id_entreprise" />
+                <ScalarProperty Name="id_Inspection" ColumnName="id_Inspection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Produit">
+            <EntityTypeMapping TypeName="SGCT_dbModel.Tbl_Produit">
+              <MappingFragment StoreEntitySet="Tbl_Produit">
+                <ScalarProperty Name="info_produit" ColumnName="info_produit" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ModifBy" ColumnName="ModifBy" />
+                <ScalarProperty Name="DateModif" ColumnName="DateModif" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="nom_produit" ColumnName="nom_produit" />
+                <ScalarProperty Name="id_produit" ColumnName="id_produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_all_inspection" FunctionName="SGCT_dbModel.Store.sp_all_inspection">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGCT_dbModel.sp_all_inspection_Result">
+                <ScalarProperty Name="Nom_entreprise" ColumnName="Nom_entreprise" />
+                <ScalarProperty Name="Id_entreprise" ColumnName="Id_entreprise" />
+                <ScalarProperty Name="INSPECTIO_BY" ColumnName="INSPECTIO_BY" />
+                <ScalarProperty Name="id_produit" ColumnName="id_produit" />
+                <ScalarProperty Name="DATEINSPECTION_CREATED" ColumnName="DATEINSPECTION_CREATED" />
+                <ScalarProperty Name="nom_produit" ColumnName="nom_produit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

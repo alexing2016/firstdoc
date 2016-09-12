@@ -1,0 +1,716 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeFile="Site.master.vb" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SGCT</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+      <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+      <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+           <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"> <span>Système de Gestion</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="images/MICT.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Mairie,</span>
+                <h2>Tabarre</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+              <br />
+               <br />
+             <br />
+               <br />
+             
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <%--<li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Demosss/Default4.aspx">Historique</a>
+                      </li>
+                      <li><a href="../Demosss/Default4.aspx">Administration</a>
+                      </li>
+                      <li><a href="../Demosss/Default4.aspx">Dashboard3</a>
+                      </li>
+                    </ul>
+                  </li>--%>
+                  <li><a><i class="fa fa-folder-open"></i> Services funéraires <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+
+                      <li><a href="../Demosss/Liste_Student">Permis d'inhumer</a>
+                      </li>
+
+                        <li><a href="form_buttons.html">Permis d’exhumer</a>
+                      </li>
+                      <%--<li><a href="Default2.aspx">Acte de divorce</a>
+                      </li>
+                        <li><a href="form_buttons.html">Acte de décès</a>
+                      </li>
+                         <li><a href="../Demosss/Liste_Student_2">Acte d'adoption</a>
+                      </li>--%>
+                   
+                 <%--     <li><a href="../Demosss/Liste_Student_1">1e Année</a>
+                      </li>
+                      <li><a href="../Demosss/Liste_Student_2">2e Année</a>
+                      </li>
+                     <li><a href="../Demosss/Liste_Student_3">3e Année</a>
+                      </li>
+                    <li><a href="../Demosss/Liste_Student_4">4e Année</a>
+                      </li>
+                    <li><a href="../Demosss/Liste_Student_5">5e Année</a>
+                      </li>--%>
+                    </ul>
+                  </li>
+                    <li><a><i class="fa fa-building-o"></i>Service des écoles<span class="fa fa-chevron-down"></span></a>
+                   <ul class="nav child_menu">
+                      <li><a href="../Demosss/Liste_note.aspx">Promotion scolarisation universelle</a>
+                      </li>
+                       <li><a href="../Demosss/Liste_moyenne.aspx">Promotion formation professionelle</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-institution"></i> Service de l'urbanisme<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Demosss/Liste_professeurs.aspx">Permis de construire</a>
+                      </li>
+                          <%--<li><a href="../Demosss/Liste_professeurs.aspx">Liste professeurs</a>
+                      </li>--%>
+                    </ul>
+                  </li>
+                     <li><a><i class="fa fa-users"></i>Ressources humaines<span class="fa fa-chevron-down"></span></a>
+                   <ul class="nav child_menu">
+                      <li><a href="../Demosss/Liste_personnel.aspx">Administratif</a>
+                      </li>
+                      <li><a href="../Demosss/Liste_personnel_soutien.aspx">Soutien</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-leaf"></i> Service environnement<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../production/Liste_demande_arbre.aspx">Toutes les demandes coupe d'arbres</a>
+                      </li>
+                     <li><a href="../production/Liste_demande_en_cours.aspx">demandes en attente</a>
+                      </li>
+                        <li><a href="../production/Liste_demande_autorise.aspx">demandes autorisées</a>
+
+                      </li>
+                        <li><a href="../production/Liste_demande_refusé.aspx">demandes refusées</a>
+                      </li>
+                    </ul>
+                  </li>
+                    <li><a><i class="fa fa-user"></i>Service d'immigration <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="fixed_sidebar.html">Etudiants</a>
+                      </li>
+                         <li><a href="fixed_sidebar.html">Professeurs</a>
+                      </li>
+                         <li><a href="fixed_sidebar.html">Personel</a>
+                      </li>
+                    </ul>
+                  </li>
+                        <li><a><i class="fa fa-folder-open"></i> Service de patente <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        
+                        
+                            
+                            <li><a href="../production/Liste_patente">Toutes les patentes</a>
+                            </li>
+                          
+                            <li><a href="../production/Liste_patente_statut">Patentes demandées</a>
+                            </li>
+                             
+                            <li><a href="../production/Liste_patente_en_attente">Patentes en attente</a>
+                            </li>
+                          
+                            <li><a href="../production/Liste_patente">Patentes livrées</a>
+                            </li>
+                      
+                    </ul>
+                  </li>
+
+
+                                    <li><a><i class="fa fa-calendar"></i> Event <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        
+                       
+                        <li><a href="../production/Liste_event">Evenement</a>
+                        </li>
+                         
+                    </ul>
+                  </li>
+
+                <li><a><i class="fa fa-dollar"></i> Service de taxation <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        
+                        <li><a>Paiement<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="../Demosss/Liste_entrée_financiere">Impot locatif</a>
+                            </li>
+                            
+                           
+                          </ul>
+                        </li>
+                        <li><a href="#level1_2">Logistique</a>
+                        </li>
+                         <li><a href="#level1_2">Planning</a>
+                        </li>
+                    </ul>
+                  </li>
+                 
+                     <li><a><i class="fa fa-cog"></i>Paramètres <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../production/Liste_secteur_activite.aspx">Secteur d'activité</a>
+                      </li>
+                         <li><a href="../production/Liste_contribuables.aspx">Contribuables</a>
+                      </li>
+                         <li><a href="../production/Liste_Statut.aspx">Statut patente</a>
+                      </li>
+                        <li><a href="../production/Liste_statut_occupant.aspx">Statut des occupants</a>
+                      </li>
+                         <li><a href="../production/Liste_forme_juridique.aspx">Formes juridiques</a>
+                      </li>
+                         <li><a href="../production/Liste_mairie.aspx">Mairies</a>
+                      </li>
+                        <li><a href="../production/Liste_monument.aspx">Monuments historiques</a>
+                      </li>
+                        <li><a href="../production/Liste_raison.aspx">Raison d'arbattage</a>
+                      </li>
+                    <li><a>Contrat<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="../production/Liste_type_annexe.aspx">Type annexe</a>
+                            </li>
+                            <li><a href="../Demosss/Liste_contrat_personnel">Personnels</a>
+                            </li>
+                           
+                          </ul>
+                         </li>
+                                                  <li><a href="../production/Liste_type_annexe.aspx">Type annexe</a>
+                            </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              
+               
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+
+          <div class="nav_menu">
+            <nav class="" role="navigation">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+                <%--<img src="images/ministère interieure.jpg" alt="..." width="75">--%>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-cog"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;">  Profile</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">Help</a>
+                    </li>
+                    <li><a href="logg.aspx"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    </li>
+                  </ul>
+                </li>
+
+              
+
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        
+
+                     <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+           
+          
+        
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Copyrights - SGDUL by <a href="https://colorlib.com">FDS</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+        </div>
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+          <script src="../vendors/validator/validator.min.js"></script>
+         <script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+       <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+       <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.js"></script>
+      <script>
+          $(document).ready(function () {
+              $(":input").inputmask();
+          });
+    </script>
+          <script>
+              $(document).ready(function () {
+                  $('#wizard').smartWizard();
+
+                  $('#wizard_verticle').smartWizard({
+                      transitionEffect: 'slide'
+                  });
+
+                  $('.buttonNext').addClass('btn btn-success');
+                  $('.buttonPrevious').addClass('btn btn-primary');
+                  $('.buttonFinish').addClass('btn btn-default');
+              });
+    </script>
+    <!-- Datatables -->
+    <script>
+        $(document).ready(function () {
+            var handleDataTableButtons = function () {
+                if ($("#datatable-buttons").length) {
+                    $("#datatable-buttons").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                          {
+                              extend: "copy",
+                              className: "btn-sm"
+                          },
+                          {
+                              extend: "csv",
+                              className: "btn-sm"
+                          },
+                          {
+                              extend: "excel",
+                              className: "btn-sm"
+                          },
+                          {
+                              extend: "pdfHtml5",
+                              className: "btn-sm"
+                          },
+                          {
+                              extend: "print",
+                              className: "btn-sm"
+                          },
+                        ],
+                        responsive: true
+                    });
+                }
+            };
+
+            TableManageButtons = function () {
+                "use strict";
+                return {
+                    init: function () {
+                        handleDataTableButtons();
+                    }
+                };
+            }();
+
+            $('#datatable').dataTable();
+            $('#datatable-keytable').DataTable({
+                keys: true
+            });
+
+            $('#datatable-responsive').DataTable();
+
+            $('#datatable-scroller').DataTable({
+                ajax: "js/datatables/json/scroller-demo.json",
+                deferRender: true,
+                scrollY: 380,
+                scrollCollapse: true,
+                scroller: true
+            });
+
+            var table = $('#datatable-fixed-header').DataTable({
+                fixedHeader: true
+            });
+
+            TableManageButtons.init();
+        });
+    </script>
+    
+    <!-- /Datatables -->
+
+
+
+      <script>
+          $(document).ready(function () {
+              var cb = function (start, end, label) {
+                  console.log(start.toISOString(), end.toISOString(), label);
+                  $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+              };
+
+              var optionSet1 = {
+                  startDate: moment().subtract(29, 'days'),
+                  endDate: moment(),
+                  minDate: '01/01/2012',
+                  maxDate: '12/31/2015',
+                  dateLimit: {
+                      days: 60
+                  },
+                  showDropdowns: true,
+                  showWeekNumbers: true,
+                  timePicker: false,
+                  timePickerIncrement: 1,
+                  timePicker12Hour: true,
+                  ranges: {
+                      'Today': [moment(), moment()],
+                      'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                      'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                      'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                      'This Month': [moment().startOf('month'), moment().endOf('month')],
+                      'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                  },
+                  opens: 'right',
+                  buttonClasses: ['btn btn-default'],
+                  applyClass: 'btn-small btn-primary',
+                  cancelClass: 'btn-small',
+                  format: 'MM/DD/YYYY',
+                  separator: ' to ',
+                  locale: {
+                      applyLabel: 'Submit',
+                      cancelLabel: 'Clear',
+                      fromLabel: 'From',
+                      toLabel: 'To',
+                      customRangeLabel: 'Custom',
+                      daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                      monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                      firstDay: 1
+                  }
+              };
+
+              $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+              $('#reportrange_right').daterangepicker(optionSet1, cb);
+
+              $('#reportrange_right').on('show.daterangepicker', function () {
+                  console.log("show event fired");
+              });
+              $('#reportrange_right').on('hide.daterangepicker', function () {
+                  console.log("hide event fired");
+              });
+              $('#reportrange_right').on('apply.daterangepicker', function (ev, picker) {
+                  console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+              });
+              $('#reportrange_right').on('cancel.daterangepicker', function (ev, picker) {
+                  console.log("cancel event fired");
+              });
+
+              $('#options1').click(function () {
+                  $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
+              });
+
+              $('#options2').click(function () {
+                  $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
+              });
+
+              $('#destroy').click(function () {
+                  $('#reportrange_right').data('daterangepicker').remove();
+              });
+
+          });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var cb = function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            };
+
+            var optionSet1 = {
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/2012',
+                maxDate: '12/31/2015',
+                dateLimit: {
+                    days: 60
+                },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'left',
+                buttonClasses: ['btn btn-default'],
+                applyClass: 'btn-small btn-primary',
+                cancelClass: 'btn-small',
+                format: 'MM/DD/YYYY',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Clear',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            };
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+            $('#reportrange').daterangepicker(optionSet1, cb);
+            $('#reportrange').on('show.daterangepicker', function () {
+                console.log("show event fired");
+            });
+            $('#reportrange').on('hide.daterangepicker', function () {
+                console.log("hide event fired");
+            });
+            $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+                console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+            });
+            $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+                console.log("cancel event fired");
+            });
+            $('#options1').click(function () {
+                $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+            });
+            $('#options2').click(function () {
+                $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+            });
+            $('#destroy').click(function () {
+                $('#reportrange').data('daterangepicker').remove();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#single_cal1').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_1"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#single_cal2').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_2"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#single_cal3').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_3"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#single_cal4').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#reservation').daterangepicker(null, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+        });
+    </script>
+
+          <script>
+
+              // The following example creates a marker in Stockholm, Sweden using a DROP
+              // animation. Clicking on the marker will toggle the animation between a BOUNCE
+              // animation and no animation.
+
+
+
+              //function initMap_1(x,y,z) {
+              //    var map = new google.maps.Map(document.getElementById('map'), {
+              //        zoom: 13,
+              //        center: { lat: 18.641400, lng: 72.872200 }
+              //    });
+
+
+
+
+
+
+
+              //        var marker = new google.maps.Marker({
+              //            position: { lat: y, lng: z },
+              //            map: map,
+              //            draggable: true,
+              //            animation: google.maps.Animation.DROP,
+              //            title: x,
+              //            zIndex: 1
+              //        });
+              //        marker.addListener('click', toggleBounce);
+
+
+              //    }
+
+
+
+
+              function initMap() {
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 13,
+                      center: { lat: -33.890542, lng: 151.274856 }
+                  });
+
+                  var beaches = [
+                    ['Bondi Beach', -33.890542, 151.274856, 4],
+                    ['Coogee Beach', -33.923036, 151.259052, 5],
+                    ['Cronulla Beach', -34.028249, 151.157507, 8],
+                    ['Manly Beach', -33.80010128657071, 151.28747820854187, 7],
+                    ['Maroubra Beach', -33.950198, 151.259302, 6]
+                    //['Luchard', 18.641400, 72.872200, 1]
+
+                  ];
+
+
+                  for (var i = 0; i < beaches.length; i++) {
+
+                      var beach = beaches[i];
+                      var marker = new google.maps.Marker({
+                          position: { lat: beach[1], lng: beach[2] },
+                          map: map,
+                          draggable: true,
+                          animation: google.maps.Animation.DROP,
+                          title: beach[0],
+                          zIndex: beach[3]
+                      });
+                      marker.addListener('click', toggleBounce);
+
+
+                  }
+
+              }
+
+              function toggleBounce() {
+                  if (marker.getAnimation() !== null) {
+                      marker.setAnimation(null);
+                  } else {
+                      marker.setAnimation(google.maps.Animation.BOUNCE);
+                  }
+              }
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_k8UqgRYWCYKsfdszCWSPZyjeocWHQh8&signed_in=true&callback=initMap"></script>
+  </body>
+</html>

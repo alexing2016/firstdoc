@@ -1,0 +1,109 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Marker Animations</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 90%;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+
+        // The following example creates a marker in Stockholm, Sweden using a DROP
+        // animation. Clicking on the marker will toggle the animation between a BOUNCE
+        // animation and no animation.
+
+
+
+        //function initMap_1(x,y,z) {
+        //    var map = new google.maps.Map(document.getElementById('map'), {
+        //        zoom: 13,
+        //        center: { lat: 18.641400, lng: 72.872200 }
+        //    });
+
+
+
+
+
+
+
+        //        var marker = new google.maps.Marker({
+        //            position: { lat: y, lng: z },
+        //            map: map,
+        //            draggable: true,
+        //            animation: google.maps.Animation.DROP,
+        //            title: x,
+        //            zIndex: 1
+        //        });
+        //        marker.addListener('click', toggleBounce);
+
+
+        //    }
+
+
+
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: { lat: -73.0, lng: 19.03096327846469 }
+               
+            });
+
+            var beaches = [
+              ['Bondi Beach', -33.890542, 151.274856, 4],
+              ['Coogee Beach', -33.923036, 151.259052, 5],
+              ['Cronulla Beach', -34.028249, 151.157507, 8],
+              ['Manly Beach', -33.80010128657071, 151.28747820854187, 7],
+              ['Maroubra Beach', -33.950198, 151.259302, 6]
+              ['Luchard', 19.03096327846469, -73.0, 1]
+
+            ];
+
+
+            for (var i = 0; i < beaches.length; i++) {
+
+                var beach = beaches[i];
+                var marker = new google.maps.Marker({
+                    position: { lat: beach[1], lng: beach[2] },
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    title: beach[0],
+                    zIndex: beach[3],
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                marker.addListener('click', toggleBounce);
+
+
+            }
+
+        }
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_k8UqgRYWCYKsfdszCWSPZyjeocWHQh8&signed_in=true&callback=initMap"></script>
+   
+</body>
+</html>
